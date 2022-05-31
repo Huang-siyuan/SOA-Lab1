@@ -1,4 +1,4 @@
-package org.itmo;
+package ru.itmo.soa;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
