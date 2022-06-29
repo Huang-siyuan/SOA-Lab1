@@ -1,6 +1,8 @@
-package ru.itmo.soa.model;
+package ru.itmo.soa.model.POJO;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @program: SOA-Lab1
@@ -9,6 +11,8 @@ import lombok.Data;
  **/
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Coordinates {
     private int x; // The field value must be greater than -479
     private Double y; // Field value must be greater than -89, Field cannot be null

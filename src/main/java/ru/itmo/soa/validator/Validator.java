@@ -1,7 +1,7 @@
 package ru.itmo.soa.validator;
 
-import ru.itmo.soa.model.Coordinates;
-import ru.itmo.soa.model.Vehicle;
+import ru.itmo.soa.model.POJO.Coordinates;
+import ru.itmo.soa.model.POJO.Vehicle;
 
 public class Validator {
 
