@@ -16,4 +16,5 @@ public enum FuelType {
     FuelType(String name) {
         this.name = name;
     }
+
 }

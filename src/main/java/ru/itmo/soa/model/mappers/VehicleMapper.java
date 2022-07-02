@@ -12,21 +12,21 @@ import ru.itmo.soa.model.POJO.Vehicle;
 @Mapper
 public interface VehicleMapper {
 
-    @Insert("INSERT INTO vehicle (name, coordinates_id, creation_date, engine_power, fuel_consumption, distance_travelled, fuel_type) " +
-            "VALUES (#{name}, #{coordinatesId}, #{creationDate}, #{enginePower}, #{fuelConsumption}, #{distanceTravelled}, #{fuelType})")
+    @Insert("INSERT INTO vehicle (id, name, coordinates_id, creation_date, engine_power, fuel_consumption, distance_travelled, fuel_type) " +
+            "VALUES (#{id}, #{name}, #{coordinatesId}, #{creationDate}, #{enginePower}, #{fuelConsumption}, #{distanceTravelled}, #{fuelType})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     Integer insertVehicle(VehicleDAO vehicle);
 
     @Select("SELECT * FROM vehicle WHERE id = #{id}")
     @ResultMap("vehicleResult")
-    Vehicle findVehicleById(Long id);
+    VehicleDAO findVehicleById(Long id);
 
     @Update("UPDATE vehicle SET name = #{name}, creation_date = #{creationDate}, engine_power = #{enginePower}, fuel_consumption = #{fuelConsumption}, " +
             "distance_travelled = #{distanceTravelled}, fuel_type = #{fuelType}, coordinates_id = #{coordinatesId} WHERE id = #{id}")
-    Integer updateVehicle(Vehicle vehicle);
+    Integer updateVehicle(VehicleDAO vehicleDAO);
 
     @Delete("DELETE FROM vehicle WHERE id = #{id}")
-    Integer deleteVehicle(Long id);
+    Integer deleteVehicle(Integer id);
 
     @Select("SELECT * FROM vehicle")
     @Results(id = "vehicleResult", value = {

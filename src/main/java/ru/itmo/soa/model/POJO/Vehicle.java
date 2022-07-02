@@ -1,6 +1,9 @@
 package ru.itmo.soa.model.POJO;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import ru.itmo.soa.model.DAO.VehicleDAO;
+import ru.itmo.soa.validator.Validator;
 
 /**
  * @program: SOA-Lab1
@@ -9,6 +12,7 @@ import lombok.Data;
  **/
 
 @Data
+@NoArgsConstructor
 public class Vehicle {
     // ID will be created by database.
     private Long id; // The field cannot be null, The field value must be greater than 0, The value of this field must be unique, The value of this field must be generated automatically
@@ -37,13 +41,23 @@ public class Vehicle {
         }
         this.coordinates.setX(coordinateX);
         this.coordinates.setY(coordinateY);
-
         this.name = name;
-        this.coordinates = coordinates;
         this.creationDate = java.time.LocalDateTime.now();
         this.enginePower = enginePower;
         this.fuelConsumption = fuelConsumption;
         this.distanceTravelled = distanceTravelled;
         this.fuelType = fuelType;
+    }
+
+    // Without the coordinate part
+    public VehicleDAO toVehicleDAO() {
+        VehicleDAO vehicleDAO = new VehicleDAO();
+        vehicleDAO.setId(id);
+        vehicleDAO.setCreationDate(creationDate);
+        vehicleDAO.setDistanceTravelled(distanceTravelled);
+        vehicleDAO.setEnginePower(enginePower);
+        vehicleDAO.setFuelConsumption(fuelConsumption);
+        vehicleDAO.setName(name);
+        return vehicleDAO;
     }
 }

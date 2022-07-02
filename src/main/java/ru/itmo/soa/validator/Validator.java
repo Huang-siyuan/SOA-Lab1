@@ -1,6 +1,7 @@
 package ru.itmo.soa.validator;
 
 import ru.itmo.soa.model.POJO.Coordinates;
+import ru.itmo.soa.model.POJO.FuelType;
 import ru.itmo.soa.model.POJO.Vehicle;
 
 public class Validator {
@@ -18,5 +19,10 @@ public class Validator {
 
     public static boolean validateCoordinates(Coordinates coordinates) {
         return coordinates.getX() > -479 && coordinates.getY() > -89;
+    }
+
+    public static boolean validateFuelType(String fuelType) {
+        return (fuelType != null) &&
+               (fuelType.equals("KEROSENE") || fuelType.equals("DIESEL") || fuelType.equals("MANPOWER") || fuelType.equals("NUCLEAR") || fuelType.equals("PLASMA"));
     }
 }

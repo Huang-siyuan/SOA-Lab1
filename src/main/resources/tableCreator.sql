@@ -13,7 +13,7 @@ create table coordinates
 
 create table vehicle
 (
-    id                 serial
+    id                 bigserial
         constraint vehicle_pk
             primary key,
     name               varchar(50)      not null
@@ -38,4 +38,8 @@ create table vehicle
         constraint "FK_vehicle_coordinates"
             references coordinates(id)
 );
+
+
+-- 02/07 Change the id type of the vehicle table to bigserial.
+-- Cause it's the Long.
 

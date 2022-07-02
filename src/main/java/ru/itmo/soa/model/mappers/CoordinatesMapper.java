@@ -2,6 +2,7 @@ package ru.itmo.soa.model.mappers;
 
 import org.apache.ibatis.annotations.*;
 import ru.itmo.soa.model.DAO.CoordinatesDAO;
+import ru.itmo.soa.model.POJO.Coordinates;
 
 @Mapper
 public interface CoordinatesMapper {
@@ -10,7 +11,7 @@ public interface CoordinatesMapper {
     Integer insertCoordinates(CoordinatesDAO coordinates);
 
     @Select("SELECT * FROM coordinates WHERE id = #{id}")
-    Integer findCoordinatesById(Long id);
+    CoordinatesDAO findCoordinatesById(Integer id);
 
     @Delete("DELETE FROM coordinates WHERE id = #{id}")
     Integer deleteCoordinates(Long id);
